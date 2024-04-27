@@ -1,10 +1,20 @@
-<p style="color: green"><%= notice %></p>
 
 <h1>Posts</h1>
+<hr/>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
+<% @posts.each do |post| %>
+  <div>
+  <h3> <%= post.title %>
+  </h3>
+  <h4>
+  <%= post.content %>
+  </h4>
+  <%= link_to "Edit", edit_post_path(post) %>
+  
+  <%= button_to "Delete", delete_post_path(post), method: :delete%>
+  <a href="<%= post_path(post) %>">Show</a>
+  
+  
+  </div>
   <% end %>
-</div>
 

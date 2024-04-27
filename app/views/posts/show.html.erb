@@ -1,0 +1,11 @@
+<div>
+<h1> <%= @post.title %>
+</h1>
+<h3>
+<%= @post.content %>
+</h3>
+<%= link_to "Edit", edit_post_path(@post) %>
+
+<%= button_to "Delete", delete_post_path(@post), method: :delete%>
+<%= link_to "New post", new_post_path %>
+</div>

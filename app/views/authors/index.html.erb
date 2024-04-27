@@ -1,0 +1,24 @@
+<h1>authors</h1>
+<hr/>
+
+<% @authors.each do |author| %>
+    <div>
+    <h3> <%= author.name %>
+    </h3>
+    <h4>
+    <%= author.email %>
+    </h4>
+    <h3>
+    <%= author.dob %>
+    <h3>
+    <%= author.phone_number %>
+    </h3>
+    
+    <%= link_to "Edit", edit_author_path(author) %>
+    
+    <%= button_to "Delete", delete_author_path(author), method: :delete%>
+    <a href="<%= author_path(author) %>">Show</a>
+    
+    
+    </div>
+    <% end %>

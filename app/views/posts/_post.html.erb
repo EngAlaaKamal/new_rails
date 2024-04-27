@@ -1,12 +1,22 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+ 
 
-  <p>
-    <strong>Content:</strong>
-    <%= post.content %>
-  </p>
-
-</div>
+<form action="<%= defined?(post) && post.persisted? ? post_path(post) : posts_path %>" method="post">
+  <% if defined?(post) && post.persisted? %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  
+  <label for="title">Title</label><br>
+  <input type="text" id="title" name="post[title]" value="<%= defined?(post) ? post.title : '' %>"><br>
+  
+  <label for="content">Content</label><br>
+  <input type="text" id="content" name="post[content]" value="<%= defined?(post) ? post.content : '' %>"><br>
+  
+   
+  <button type="submit">
+  <% if defined?(post) && post.persisted? %>
+    Update
+  <% else %>
+    Create
+  <% end %>
+</button>
+</form>
